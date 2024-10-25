@@ -17,31 +17,50 @@
         }
         h1 {
             color: #333;
+            font-size: 2.5em;
         }
         .container {
             display: flex;
-            gap: 20px;
+            gap: 40px;
             flex-wrap: wrap;
             justify-content: center;
         }
         .card {
             background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 200px;
-            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            width: 400px;  /* Aumentando a largura */
+            padding: 40px; /* Aumentando o padding */
             text-align: center;
             transition: 0.3s;
         }
         .card:hover {
             transform: scale(1.05);
         }
+        .card h2 {
+            font-size: 1.8em;  /* Aumentando o tamanho do título */
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .card p {
+            font-size: 1.1em;  /* Aumentando o tamanho do texto */
+            color: #555;
+            margin-bottom: 20px;
+        }
         .card a {
-            display: block;
-            margin-top: 10px;
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 6px;
             text-decoration: none;
-            color: #007bff;
+            font-size: 1.1em;  /* Aumentando o tamanho do link */
             font-weight: bold;
+            transition: 0.3s;
+        }
+        .card a:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -60,12 +79,12 @@
         </div>
         <div class="card">
             <h2>Termo de Apostilamento</h2>
-            <p>Acesse o termo de apostilamento atualizado.</p>
+            <p>Gerar termo de apostilamento</p>
             <a href="termo-apostilamento.html">Acessar</a>
         </div>
         <div class="card">
             <h2>Termo Aditivo 007/2022</h2>
-            <p>Confira o termo aditivo de 2022.</p>
+            <p>Gerar o termo aditivo 007/2022.</p>
             <a href="termo-aditivo-007-2022.html">Acessar</a>
         </div>
     </div>
