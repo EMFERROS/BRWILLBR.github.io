@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de CNPJ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input[type="text"], button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        #resultado {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Consulta de CNPJ</h1>
+    <label for="cnpj">Digite o CNPJ:</label>
+    <input type="text" id="cnpj" placeholder="Ex: 12.345.678/0001-90" maxlength="18">
+    <button onclick="consultarCNPJ()">Consultar</button>
+    
+    <div id="resultado">
+        <h2>Dados da Empresa</h2>
+        <p id="razao-social"></p>
+        <p id="nome-fantasia"></p>
+        <p id="situacao"></p>
+        <p id="logradouro"></p>
+        <p id="bairro"></p>
+        <p id="municipio"></p>
+        <p id="uf"></p>
+    </div>
+
+    <script>
+        function consultarCNPJ() {
+            const cnpj = document.getElementById("cnpj").value.replace(/[^\d]+/g, '').trim();
+
+            if (cnpj.length !== 14) {
+                alert("Por favor, insira um CNPJ válido com 14 dígitos.");
+                return;
+            }
+
+            fetch(`https://www.receitaws.com.br/v1/cnpj/${cnpj}`)
+                .then(response => {
+                    if (!response.ok) throw new Error("CNPJ não encontrado.");
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status === "ERROR") {
+                        alert("CNPJ não encontrado.");
+                        return;
+                    }
+
+                    document.getElementById("razao-social").innerText = `Razão Social: ${data.nome}`;
+                    document.getElementById("nome-fantasia").innerText = `Nome Fantasia: ${data.fantasia}`;
+                    document.getElementById("situacao").innerText = `Situação: ${data.situacao}`;
+                    document.getElementById("logradouro").innerText = `Endereço: ${data.logradouro}, ${data.numero}`;
+                    document.getElementById("bairro").innerText = `Bairro: ${data.bairro}`;
+                    document.getElementById("municipio").innerText = `Município: ${data.municipio}`;
+                    document.getElementById("uf").innerText = `Estado: ${data.uf}`;
+                    document.getElementById("resultado").style.display = "block";
+                })
+                .catch(error => alert(error.message));
+        }
+    </script>
+</body>
+</html>
