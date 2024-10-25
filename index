@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial de Funcionalidades</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Funcionalidades Disponíveis</h1>
+    <div class="container">
+        <div class="card">
+            <h2>Converter Base64</h2>
+            <p>Converta arquivos para o formato Base64.</p>
+            <a href="converter-base64.html">Acessar</a>
+        </div>
+        <div class="card">
+            <h2>Fundir PDFs</h2>
+            <p>Combine múltiplos arquivos PDF em um só.</p>
+            <a href="fundir-pdfs.html">Acessar</a>
+        </div>
+        <div class="card">
+            <h2>Termo de Apostilamento</h2>
+            <p>Acesse o termo de apostilamento atualizado.</p>
+            <a href="termo-apostilamento.html">Acessar</a>
+        </div>
+        <div class="card">
+            <h2>Termo Aditivo 007/2022</h2>
+            <p>Confira o termo aditivo de 2022.</p>
+            <a href="termo-aditivo-007-2022.html">Acessar</a>
+        </div>
+    </div>
+</body>
+</html>
