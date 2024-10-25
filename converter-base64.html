@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Imagem para Base64</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        h2 { color: #333; }
+        #output { white-space: pre-wrap; word-wrap: break-word; max-width: 90%; margin-top: 10px; border: 1px solid #ccc; padding: 10px; }
+        #copyButton { margin-top: 10px; padding: 5px 10px; cursor: pointer; }
+        img { max-width: 100%; margin-top: 10px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h2>Selecione uma imagem para converter em Base64</h2>
+    <input type="file" id="fileInput" accept="image/*">
+    <img id="preview" alt="Pré-visualização da imagem" style="display: none;">
+    <pre id="output"></pre>
+    <button id="copyButton" style="display: none;">Copiar Base64</button>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const output = document.getElementById('output');
+        const preview = document.getElementById('preview');
+        const copyButton = document.getElementById('copyButton');
+
+        fileInput.addEventListener('change', () => {
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const base64String = event.target.result;
+                    preview.src = base64String;
+                    preview.style.display = 'block';
+                    output.textContent = base64String;
+                    copyButton.style.display = 'inline-block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        copyButton.addEventListener('click', () => {
+            navigator.clipboard.writeText(output.textContent).then(() => {
+                alert("Código Base64 copiado para a área de transferência!");
+            });
+        });
+    </script>
+</body>
+</html>
