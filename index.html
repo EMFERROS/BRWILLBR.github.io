@@ -9,41 +9,43 @@
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
+            align-items: center;
             min-height: 100vh;
             margin: 0;
         }
         h1 {
             color: #333;
             font-size: 2.5em;
+            margin: 20px 0;
         }
         .container {
             display: flex;
             gap: 40px;
             flex-wrap: wrap;
             justify-content: center;
+            padding: 20px;
         }
         .card {
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            width: 400px;  /* Aumentando a largura */
-            padding: 40px; /* Aumentando o padding */
+            width: 400px;  
+            padding: 40px; 
             text-align: center;
-            transition: 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .card:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
         }
         .card h2 {
-            font-size: 1.8em;  /* Aumentando o tamanho do título */
+            font-size: 1.8em;  
             color: #333;
             margin-bottom: 15px;
         }
         .card p {
-            font-size: 1.1em;  /* Aumentando o tamanho do texto */
+            font-size: 1.1em;  
             color: #555;
             margin-bottom: 20px;
         }
@@ -55,12 +57,23 @@
             color: #fff;
             border-radius: 6px;
             text-decoration: none;
-            font-size: 1.1em;  /* Aumentando o tamanho do link */
+            font-size: 1.1em;  
             font-weight: bold;
-            transition: 0.3s;
+            transition: background-color 0.3s;
         }
         .card a:hover {
             background-color: #0056b3;
+        }
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+            color: #777;
+        }
+        @media (max-width: 600px) {
+            .card {
+                width: 90%; /* Ajusta a largura dos cards em telas menores */
+            }
         }
     </style>
 </head>
@@ -74,19 +87,62 @@
         </div>
         <div class="card">
             <h2>Fundir PDFs</h2>
-            <p>Combine múltiplos arquivos.</p>
+            <p>Combine múltiplos arquivos PDF em um só.</p>
             <a href="fundir-pdfs.html">Acessar</a>
         </div>
         <div class="card">
             <h2>Termo de Apostilamento</h2>
-            <p>Gerar termo de apostilamento</p>
+            <p>Acesse o termo de apostilamento atualizado.</p>
             <a href="termo-apostilamento.html">Acessar</a>
         </div>
         <div class="card">
             <h2>Termo Aditivo 007/2022</h2>
-            <p>Gerar o termo aditivo 007/2022.</p>
+            <p>Confira o termo aditivo de 2022.</p>
             <a href="termo-aditivo-007-2022.html">Acessar</a>
         </div>
+        <div class="card">
+            <h2>XXXXXXXXXXXXXXXXXXXX Áudio</h2>
+            <p>.</p>
+            <a href="texto-para-audio.html">Acessar</a>
+        </div>
+        <div class="card">
+            <h2>XXXXXXXXXXXXXXXXXXXXXXXXXX</h2>
+            <p>Crie XXXXXXXXXXXXXXXXXXXXs.</p>
+            <a href="gerar-qrcode.html">Acessar</a>
+        </div>
+        <div class="card">
+            <h2>XXXXXXXXXXXXXXXXXXXXXXXXXX</h2>
+            <p>XXXXXXXXXXXXXXXXXXXXXXXXXXX.</p>
+            <a href="comprimir-imagens.html">Acessar</a>
+        </div>
+        <div class="card">
+            <h2>XXXXXXXXXXXXXXXXXXXXXXXXXX</h2>
+            <p>XXXXXXXXXXXXXXXXXXXXXXX.</p>
+            <a href="dividir-pdfs.html">Acessar</a>
+        </div>
+        <div class="card">
+            <h2>XXXXXXXXXXXXXXXXXXXXX</h2>
+            <p>XXXXXXXXXXXXXXXXXXXXXX.</p>
+            <a href="gerar-senha.html">Acessar</a>
+        </div>
+        <div class="card">
+            <h2>XXXXXXXXXXXXXXXXXXXXXXX</h2>
+            <p>XXXXXXXXXXXXXXXXXXXXXXXXXX.</p>
+            <a href="validar-cpf.html">Acessar</a>
+        </div>
+        <div class="card">
+            <h2>XXXXXXXXXXXXXXXXXXXXXXX</h2>
+            <p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.</p>
+            <a href="geraR.HMTL">Acessar</a>
+        </div>
+        <div class="card">
+            <h2>XXXXXXXXXXXXXXXX</h2>
+            <p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <a href="calcular-imc.html">Acessar</a>
+        </div>
     </div>
+    <footer>
+        <p>&copy; 2024 Seu Nome. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
