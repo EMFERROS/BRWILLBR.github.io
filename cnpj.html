@@ -41,7 +41,7 @@
     </div>
 
     <script>
-        function consultarCNPJ() {
+        async function consultarCNPJ() {
             const cnpj = document.getElementById("cnpj").value.replace(/[^\d]+/g, '').trim();
 
             if (cnpj.length !== 14) {
@@ -49,27 +49,27 @@
                 return;
             }
 
-            fetch(`https://www.receitaws.com.br/v1/cnpj/${cnpj}`)
-                .then(response => {
-                    if (!response.ok) throw new Error("CNPJ não encontrado.");
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.status === "ERROR") {
-                        alert("CNPJ não encontrado.");
-                        return;
-                    }
+            try {
+                const response = await fetch(`https://publica.cnpj.ws/cnpj/${cnpj}`);
+                if (!response.ok) throw new Error("CNPJ não encontrado.");
+                const data = await response.json();
 
-                    document.getElementById("razao-social").innerText = `Razão Social: ${data.nome}`;
-                    document.getElementById("nome-fantasia").innerText = `Nome Fantasia: ${data.fantasia}`;
-                    document.getElementById("situacao").innerText = `Situação: ${data.situacao}`;
-                    document.getElementById("logradouro").innerText = `Endereço: ${data.logradouro}, ${data.numero}`;
-                    document.getElementById("bairro").innerText = `Bairro: ${data.bairro}`;
-                    document.getElementById("municipio").innerText = `Município: ${data.municipio}`;
-                    document.getElementById("uf").innerText = `Estado: ${data.uf}`;
-                    document.getElementById("resultado").style.display = "block";
-                })
-                .catch(error => alert(error.message));
+                if (!data) {
+                    alert("CNPJ não encontrado.");
+                    return;
+                }
+
+                document.getElementById("razao-social").innerText = `Razão Social: ${data.razao_social}`;
+                document.getElementById("nome-fantasia").innerText = `Nome Fantasia: ${data.estabelecimento.nome_fantasia}`;
+                document.getElementById("situacao").innerText = `Situação: ${data.estabelecimento.situacao}`;
+                document.getElementById("logradouro").innerText = `Endereço: ${data.estabelecimento.logradouro}, ${data.estabelecimento.numero}`;
+                document.getElementById("bairro").innerText = `Bairro: ${data.estabelecimento.bairro}`;
+                document.getElementById("municipio").innerText = `Município: ${data.estabelecimento.cidade.nome}`;
+                document.getElementById("uf").innerText = `Estado: ${data.estabelecimento.estado.sigla}`;
+                document.getElementById("resultado").style.display = "block";
+            } catch (error) {
+                alert(error.message);
+            }
         }
     </script>
 </body>
