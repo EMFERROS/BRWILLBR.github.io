@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Aviso de Dispensa Eletrônica</title>
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .container:hover {
+            transform: scale(1.01);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            background-color: #fafafa;
+            outline-color: #5cb85c;
+            transition: all 0.3s ease;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #5cb85c;
+            background-color: #f5fff5;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #5cb85c;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulário de Aviso de Dispensa Eletrônica</h2>
+        <form id="dispensaForm">
+            <label for="numeroDispensa">Número da Dispensa (3 dígitos):</label>
+            <input type="text" id="numeroDispensa" maxlength="3" placeholder="Ex.: 012" required>
+
+            <label for="numeroProcesso">Número do Processo Administrativo (3 dígitos):</label>
+            <input type="text" id="numeroProcesso" maxlength="3" placeholder="Ex.: 878" required>
+
+            <label for="dataDispensa">Data da Dispensa:</label>
+            <input type="date" id="dataDispensa" required>
+
+            <label for="objeto">Objeto da Licitação:</label>
+            <textarea id="objeto" rows="4" placeholder="Descreva o objeto da licitação" required></textarea>
+
+            <button type="button" onclick="gerarPDF()">Gerar PDF</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        function gerarPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Define a fonte e o tamanho
+            doc.setFont("calibri");
+            doc.setFontSize(12);
+
+            // Coleta os valores dos campos
+            const numeroDispensa = document.getElementById("numeroDispensa").value;
+            const numeroProcesso = document.getElementById("numeroProcesso").value;
+            const dataDispensa = new Date(document.getElementById("dataDispensa").value).toLocaleDateString('pt-BR');
+            const objeto = document.getElementById("objeto").value;
+
+            // Texto do PDF
+            const tituloCentralizado = `DISPENSA ELETRÔNICA Nº ${numeroDispensa}/2024\nPROCESSO ADMINISTRATIVO Nº ${numeroProcesso}`;
+            const textoCorpo = `
+O Consórcio Intermunicipal de Saúde Centro Leste – CISCEL, torna público para conhecimento dos interessados que fará realizar DISPENSA ELETRÔNICA DE LICITAÇÃO Nº ${numeroDispensa}/2024, no dia ${dataDispensa}, através da plataforma www.licitardigital.com.br, para ${objeto}.
+
+Mais informações poderão ser obtidas na sede do CISCEL, situado na Av. Duque de Caxias, nº 850, Esplanada da Estação, Itabira, MG, ou pelo telefone (31) 3831-3555. E-mail: licitacao@ciscel.mg.gov.br ou pelo site www.ciscel.mg.gov.br.
+
+Itabira, 10 de outubro de 2024.
+
+Dayane C. R. de Paulo
+Presidente da CPL`;
+
+            // Adiciona o título centralizado
+            doc.text(tituloCentralizado, 105, 20, { align: "center" });
+
+            // Adiciona o texto do corpo alinhado à esquerda
+            doc.text(textoCorpo, 10, 50, { align: "left", maxWidth: 180 });
+
+            // Salva o PDF
+            doc.save(`dispensa_${numeroDispensa}_2024.pdf`);
+        }
+    </script>
+</body>
+</html>
