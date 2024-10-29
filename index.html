@@ -7,72 +7,87 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #f0f2f5;
+            color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            padding: 20px;
         }
         h1 {
-            color: #333;
             font-size: 2.5em;
-            margin: 20px 0;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
         }
         .container {
             display: flex;
-            gap: 40px;
             flex-wrap: wrap;
             justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
             padding: 20px;
         }
         .card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            width: 400px;  
-            padding: 40px; 
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            padding: 20px;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .card h2 {
-            font-size: 1.8em;  
-            color: #333;
-            margin-bottom: 15px;
+            font-size: 1.5em;
+            color: #34495e;
+            margin-bottom: 10px;
         }
         .card p {
-            font-size: 1.1em;  
-            color: #555;
+            font-size: 1em;
+            color: #7f8c8d;
             margin-bottom: 20px;
         }
         .card a {
             display: inline-block;
-            margin-top: 15px;
-            padding: 12px 24px;
-            background-color: #007bff;
+            padding: 10px 20px;
+            background-color: #3498db;
             color: #fff;
-            border-radius: 6px;
+            border-radius: 5px;
             text-decoration: none;
-            font-size: 1.1em;  
             font-weight: bold;
             transition: background-color 0.3s;
         }
         .card a:hover {
-            background-color: #0056b3;
+            background-color: #2980b9;
+        }
+        .icon {
+            font-size: 3em;
+            color: #3498db;
+            margin-bottom: 15px;
         }
         footer {
             margin-top: auto;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
-            color: #777;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
         }
         @media (max-width: 600px) {
             .card {
-                width: 90%; /* Ajusta a largura dos cards em telas menores */
+                width: 100%;
             }
         }
     </style>
@@ -81,49 +96,56 @@
     <h1>Funcionalidades Disponíveis</h1>
     <div class="container">
         <div class="card">
+            <div class="icon">🔄</div>
             <h2>Converter Base64</h2>
             <p>Converta arquivos para o formato Base64.</p>
             <a href="converter-base64.html">Acessar</a>
         </div>
         <div class="card">
+            <div class="icon">📄</div>
             <h2>Fundir PDFs</h2>
             <p>Combine múltiplos arquivos PDF em um só.</p>
             <a href="fundir-pdfs.html">Acessar</a>
         </div>
         <div class="card">
+            <div class="icon">📜</div>
             <h2>Termo de Apostilamento</h2>
             <p>Acesse o termo de apostilamento atualizado.</p>
             <a href="termo-apostilamento.html">Acessar</a>
         </div>
         <div class="card">
+            <div class="icon">📑</div>
             <h2>Termo Aditivo 007/2022</h2>
             <p>Confira o termo aditivo de 2022.</p>
             <a href="termo-aditivo-007-2022.html">Acessar</a>
         </div>
         <div class="card">
-            <h2>Aviso de licitação Pregão </h2>
-            <p>Crie aqui o aviso de pregão</p>
+            <div class="icon">📢</div>
+            <h2>Aviso de Licitação Pregão</h2>
+            <p>Crie o aviso de pregão.</p>
             <a href="pregao.html">Acessar</a>
         </div>
         <div class="card">
-            <h2>Aviso de licitação Dispensa</h2>
-            <p>Crie aqui o aviso de Dispensa .</p>
+            <div class="icon">📢</div>
+            <h2>Aviso de Licitação Dispensa</h2>
+            <p>Crie o aviso de dispensa.</p>
             <a href="dispensa.html">Acessar</a>
         </div>
         <div class="card">
-            <h2>XXXXXXXXXXXXXXXXXXXXXXXXXX</h2>
-            <p>XXXXXXXXXXXXXXXXXXXXXXXXXXX.</p>
+            <div class="icon">📥</div>
+            <h2>Compactar Imagens</h2>
+            <p>Otimize e compacte suas imagens.</p>
             <a href="comprimir-imagens.html">Acessar</a>
         </div>
         <div class="card">
-            <h2>XXXXXXXXXXXXXXXXXXXXXXXXXX</h2>
-            <p>XXXXXXXXXXXXXXXXXXXXXXX.</p>
+            <div class="icon">✂️</div>
+            <h2>Dividir PDFs</h2>
+            <p>Divida arquivos PDF em partes.</p>
             <a href="dividir-pdfs.html">Acessar</a>
         </div>
-     
     </div>
     <footer>
-        <p>&copy; 2024 Seu Nome. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Seu Nome. Todos os direitos reservados. | <a href="#">Política de Privacidade</a></p>
     </footer>
 </body>
 </html>
