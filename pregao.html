@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Aviso de Licitação</title>
     <style>
+        /* Estilo básico */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -12,41 +13,64 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             background-color: #f0f2f5;
         }
+
         .container {
-            width: 80%;
-            max-width: 600px;
+            width: 100%;
+            max-width: 500px;
             background-color: #fff;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
+        
+        .container:hover {
+            transform: scale(1.01);
+        }
+
         h2 {
             text-align: center;
             color: #333;
+            font-weight: 600;
             margin-bottom: 20px;
         }
+
         label {
             font-weight: bold;
-            display: block;
-            margin: 10px 0 5px;
             color: #555;
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
+            display: block;
             font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            background-color: #f9f9f9;
         }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            background-color: #fafafa;
+            outline-color: #5cb85c;
+            transition: all 0.3s ease;
+        }
+
         textarea {
             resize: vertical;
         }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #5cb85c;
+            background-color: #f5fff5;
+        }
+
         button {
             width: 100%;
             padding: 15px;
@@ -55,10 +79,11 @@
             color: #fff;
             background-color: #5cb85c;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+
         button:hover {
             background-color: #4cae4c;
         }
@@ -69,22 +94,22 @@
         <h2>Formulário de Aviso de Licitação</h2>
         <form id="licitacaoForm">
             <label for="numeroPregao">Número do Pregão (3 dígitos):</label>
-            <input type="text" id="numeroPregao" maxlength="3" placeholder="Ex.: 123">
+            <input type="text" id="numeroPregao" maxlength="3" placeholder="Ex.: 123" required>
 
             <label for="anoPregao">Ano do Pregão:</label>
-            <select id="anoPregao">
+            <select id="anoPregao" required>
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
             </select>
 
             <label for="numeroProcesso">Número do Processo Administrativo (3 dígitos):</label>
-            <input type="text" id="numeroProcesso" maxlength="3" placeholder="Ex.: 001">
+            <input type="text" id="numeroProcesso" maxlength="3" placeholder="Ex.: 001" required>
 
             <label for="dataAbertura">Data de Abertura e Limite para Recebimento das Propostas:</label>
-            <input type="date" id="dataAbertura">
+            <input type="date" id="dataAbertura" required>
 
             <label for="detalhesContratacao">Detalhes da Contratação:</label>
-            <textarea id="detalhesContratacao" rows="4" placeholder="Descreva o objeto da licitação"></textarea>
+            <textarea id="detalhesContratacao" rows="4" placeholder="Descreva o objeto da licitação" required></textarea>
 
             <button type="button" onclick="gerarPDF()">Gerar PDF</button>
         </form>
