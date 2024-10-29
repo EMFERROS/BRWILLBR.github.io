@@ -4,90 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial de Funcionalidades</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Estilos Gerais */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #e9ecef;
+            color: #343a40;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
             margin: 0;
             padding: 20px;
         }
         h1 {
-            font-size: 2.5em;
-            color: #2c3e50;
-            margin-bottom: 20px;
+            font-size: 2.8em;
+            color: #007bff;
+            margin-bottom: 30px;
             text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
+
+        /* Container Principal */
         .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             max-width: 1200px;
             padding: 20px;
         }
+
+        /* Cards */
         .card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
             width: 280px;
             padding: 20px;
+            border-radius: 12px;
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            border: 1px solid #ced4da;
         }
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+        .icon {
+            font-size: 3em;
+            color: #007bff;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+        .card:hover .icon {
+            transform: scale(1.1);
         }
         .card h2 {
             font-size: 1.5em;
-            color: #34495e;
+            color: #495057;
             margin-bottom: 10px;
         }
         .card p {
             font-size: 1em;
-            color: #7f8c8d;
+            color: #868e96;
             margin-bottom: 20px;
         }
+
+        /* Botão de Acessar */
         .card a {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #3498db;
+            background-color: #007bff;
             color: #fff;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
         .card a:hover {
-            background-color: #2980b9;
+            background-color: #0056b3;
+            transform: translateY(-2px);
         }
-        .icon {
-            font-size: 3em;
-            color: #3498db;
-            margin-bottom: 15px;
-        }
+
+        /* Rodapé */
         footer {
             margin-top: auto;
             padding: 15px;
             text-align: center;
             font-size: 0.9em;
-            color: #7f8c8d;
+            color: #868e96;
         }
         footer a {
-            color: #3498db;
+            color: #007bff;
             text-decoration: none;
         }
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Responsividade */
         @media (max-width: 600px) {
             .card {
                 width: 100%;
+            }
+            h1 {
+                font-size: 2em;
             }
         }
     </style>
@@ -96,52 +126,68 @@
     <h1>Funcionalidades Disponíveis</h1>
     <div class="container">
         <div class="card">
-            <div class="icon">🔄</div>
-            <h2>Converter Base64</h2>
-            <p>Converta arquivos para o formato Base64.</p>
-            <a href="converter-base64.html">Acessar</a>
+            <div class="card-content">
+                <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+                <h2>Converter Base64</h2>
+                <p>Converta arquivos para o formato Base64.</p>
+                <a href="converter-base64.html">Acessar</a>
+            </div>
         </div>
         <div class="card">
-            <div class="icon">📄</div>
-            <h2>Fundir PDFs</h2>
-            <p>Combine múltiplos arquivos PDF em um só.</p>
-            <a href="fundir-pdfs.html">Acessar</a>
+            <div class="card-content">
+                <div class="icon"><i class="fas fa-file-pdf"></i></div>
+                <h2>Fundir PDFs</h2>
+                <p>Combine múltiplos arquivos PDF em um só.</p>
+                <a href="fundir-pdfs.html">Acessar</a>
+            </div>
         </div>
         <div class="card">
-            <div class="icon">📜</div>
-            <h2>Termo de Apostilamento</h2>
-            <p>Acesse o termo de apostilamento atualizado.</p>
-            <a href="termo-apostilamento.html">Acessar</a>
+            <div class="card-content">
+                <div class="icon"><i class="fas fa-scroll"></i></div>
+                <h2>Termo de Apostilamento</h2>
+                <p>Acesse o termo de apostilamento atualizado.</p>
+                <a href="termo-apostilamento.html">Acessar</a>
+            </div>
         </div>
         <div class="card">
-            <div class="icon">📑</div>
-            <h2>Termo Aditivo 007/2022</h2>
-            <p>Confira o termo aditivo de 2022.</p>
-            <a href="termo-aditivo-007-2022.html">Acessar</a>
+            <div class="card-content">
+                <div class="icon"><i class="fas fa-file-alt"></i></div>
+                <h2>Termo Aditivo 007/2022</h2>
+                <p>Confira o termo aditivo de 2022.</p>
+                <a href="termo-aditivo-007-2022.html">Acessar</a>
+            </div>
         </div>
         <div class="card">
-            <div class="icon">📢</div>
-            <h2>Aviso de Licitação Pregão</h2>
-            <p>Crie o aviso de pregão.</p>
-            <a href="pregao.html">Acessar</a>
+            <div class="card-content">
+                <div class="icon"><i class="fas fa-bullhorn"></i></div>
+                <h2>Aviso de Licitação Pregão</h2>
+                <p>Crie o aviso de pregão.</p>
+                <a href="pregao.html">Acessar</a>
+            </div>
         </div>
         <div class="card">
-            <div class="icon">📢</div>
-            <h2>Aviso de Licitação Dispensa</h2>
-            <p>Crie o aviso de dispensa.</p>
-            <a href="dispensa.html">Acessar</a>
+            <div class="card-content">
+                <div class="icon"><i class="fas fa-bullhorn"></i></div>
+                <h2>Aviso de Licitação Dispensa</h2>
+                <p>Crie o aviso de dispensa.</p>
+                <a href="dispensa.html">Acessar</a>
+            </div>
         </div>
         <div class="card">
-            <div class="icon">📥</div>
-            <h2>Compactar Imagens</h2>
-            <p>Otimize e compacte suas imagens.</p>
-            <a href="comprimir-imagens.html">Acessar</a>
+            <div class="card-content">
+                <div class="icon"><i class="fas fa-file-import"></i></div>
+                <h2>Compactar Imagens</h2>
+                <p>Otimize e compacte suas imagens.</p>
+                <a href="comprimir-imagens.html">Acessar</a>
+            </div>
         </div>
         <div class="card">
-            <div class="icon">✂️</div>
-            <h2>Dividir PDFs</h2>
-            <p>Divida arquivos PDF em partes.</p>
-            <a href="dividir-pdfs.html">Acessar</a>
+            <div class="card-content">
+                <div class="icon"><i class="fas fa-file-export"></i></div>
+                <h2>Dividir PDFs</h2>
+                <p>Divida arquivos PDF em partes.</p>
+                <a href="dividir-pdfs.html">Acessar</a>
+            </div>
         </div>
     </div>
     <footer>
