@@ -122,23 +122,20 @@
             </div>
             <div id="errorContratoNumero" class="error"></div>
 
-            <label for="processo">Número do Processo:</label>
-            <div class="flex-input">
-                <div>
-                    <select id="processo" name="processo" required>
-                        <option value="">Selecione</option>
-                        <option value="068">068</option>
-                        <option value="077">077</option>
-                    </select>
-                </div>
-                <div>
-                    <select id="processoAno" name="processoAno" required>
-                        <option value="">Ano</option>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                    </select>
-                </div>
-            </div>
+           <label for="processo">Número do Processo:</label>
+      <div class="flex-input">
+    <div>
+        <select id="processo" name="processo" required disabled>
+            <option value="077" selected>077</option>
+        </select>
+    </div>
+    <div>
+        <select id="processoAno" name="processoAno" required disabled>
+            <option value="2022" selected>2022</option>
+        </select>
+    </div>
+       </div>
+
             <div id="errorProcesso" class="error"></div>
 
             <label for="empresa">Nome da Empresa:</label>
@@ -206,7 +203,7 @@
                     cpfRepresentante: $('#cpfRepresentante').val(),
                     objeto: $('#objeto').val(),
                     detalhesObjeto: $('#detalhesObjeto').val(),
-                    dataAssinatura: '14/10/2024',
+                    dataAssinatura: '01/11/2024',
                 };
 
                 if (!data.termo || !data.contratoNumero || !data.contratoAno || !data.processo || !data.processoAno || !data.empresa || !data.representante || !data.cpfRepresentante || !data.objeto) {
